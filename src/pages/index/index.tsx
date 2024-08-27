@@ -1,24 +1,29 @@
-import { View, Text } from "@tarojs/components";
-import {AtBadge, AtButton} from "taro-ui";
+import { View, Image } from "@tarojs/components";
+import { AtButton } from "taro-ui";
+import Taro from "@tarojs/taro";
+import headerBg from "../../assets/headerBg.jpg";
+import GlobalFooter from "../../components/GlobalFooter";
 import "./index.scss";
 
+// 主页
 export default () => {
-  //ESLint 校验JS语法的
-    return (
-      <View className="index">
-        <Text>Hello world!</Text>
-        <AtButton type="primary">I need Taro UI</AtButton>
-        <Text>Taro UI 支持 Vue 了吗？</Text>
-        <AtButton type="primary" circle>
-          支持
-        </AtButton>
-        <Text>共建？</Text>
-        <AtButton type="secondary" circle>
-          来
-        </AtButton>
-        <AtBadge value={10} maxValue={99}>
-          <AtButton size="small">按钮</AtButton>
-        </AtBadge>
+  return (
+    <View className="indexPage">
+      <View className="at-article__h1 title">MBTI 性格测试</View>
+      <View className="at-article__h3 subTitle">
+        只需 2 分钟，就能非常准确地描述出你是谁，以及你的性格特点
       </View>
-    );
-}
+      <AtButton type="primary" size="normal" className="enterBtn" circle
+        onClick={() => {
+          Taro.navigateTo({
+            url: "/pages/index/index",
+          });
+        }}
+      >
+        开始测试
+      </AtButton>
+      <Image src={headerBg} style={{ width: "100%" }} mode="aspectFill" />
+      <GlobalFooter />
+    </View>
+  );
+};
