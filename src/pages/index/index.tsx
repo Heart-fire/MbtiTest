@@ -16,7 +16,7 @@ export default () => {
       <AtButton type="primary" size="normal" className="enterBtn" circle
         onClick={() => {
           Taro.navigateTo({
-            url: "/pages/index/index",
+            url: "/pages/doQuestion/index",
           });
         }}
       >
